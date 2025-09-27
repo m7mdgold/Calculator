@@ -22,7 +22,7 @@ A comprehensive calculator application with a command-line featuring basic and a
 1. Clone the repository:
 ```bash
 git clone https://github.com/m7mdgold/Calculator.git
-cd Calculator-2
+cd Calculator
 ```
 
 
@@ -33,7 +33,7 @@ cd Calculator-2
 
 Run the CLI version:
 ```bash
-python calculator.py
+calculator.cpp
 ```
 
 **CLI Menu Options:**
