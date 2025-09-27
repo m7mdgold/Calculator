@@ -4,6 +4,7 @@
 #include <cstdlib> 
 #include <thread> 
 #include <chrono> 
+#include <cmath>
 
 using namespace std;
 using namespace std::chrono;
@@ -71,10 +72,19 @@ float div() {
     return result;}
 
 
+    float pwr() {
+        int exp;
+        cout << "Enter the exponent: ";
+        cin >> exp;
+        result = pow(a, exp);
+        return result;
+    }
+
+
 
 
 int main() {
-cout << " select operation - 1.Addition 2.Subtraction 3.Multiplication 4.Division 5.History" << endl;
+cout << " select operation - 1.Addition 2.Subtraction 3.Multiplication 4.Division 5.Power" << endl;
 cin >> choice;
 switch (choice) {
 case 1:
@@ -99,9 +109,19 @@ case 4:
     div();
     cout << "The result is " << result << endl;
     break;
-// case 5:
-//     pwr();
-//     break;
+case 5:
+    cout << "select number for power operation:";
+    cin >> a;
+    pwr();
+    cout << "The result is " << result << endl;
+    break;
+
+
+
+
+
+
+    
 default:
     cout << "Invalid choice!" << endl;
 }
