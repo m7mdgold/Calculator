@@ -7,6 +7,7 @@ A comprehensive calculator application with a command-line featuring basic and a
 - ➖ Subtraction  
 - ✖️ Multiplication
 - ➗ Division (with zero division protection)
+- 🔝Power
 
 
 ### Additional Features
