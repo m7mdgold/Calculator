@@ -5,29 +5,33 @@
 #include <thread> 
 #include <chrono> 
 #include <cmath>
+#include <sstream>
 
 using namespace std;
 using namespace std::chrono;
 int choice;
-float a;
-float b;
-float result;
+float a ,result ,b;
 
 
-void history(){
-
-
-
-
-}
-
-int nbrsele(){
-
+void nbrsele(float& a, float& b) {
+    string temp;
     cout << "Enter your first number: ";
-    cin >> a;
+    while (true) {
+        getline(cin, temp);
+        stringstream ss(temp);
+        if (ss >> a && ss.eof()) break;
+        cout << "Invalid input. Try again: ";
+    }
+
     cout << "Enter your second number: ";
-    cin >> b;
-    return a, b;
+    while (true) {
+        getline(cin, temp);
+        stringstream ss(temp);
+        if (ss >> b && ss.eof()) break;
+        cout << "Invalid input. Try again: ";
+    }
+
+    
 }
 
 float add(){
@@ -84,28 +88,46 @@ float div() {
 
 
 int main() {
-cout << " select operation - 1.Addition 2.Subtraction 3.Multiplication 4.Division 5.Power" << endl;
+
+cout << R"(
+
+$$$$$$\            $$\                     $$\            $$\                         
+$$  __$$\           $$ |                    $$ |           $$ |                        
+$$ /  \__| $$$$$$\  $$ | $$$$$$$\ $$\   $$\ $$ | $$$$$$\ $$$$$$\    $$$$$$\   $$$$$$\  
+$$ |       \____$$\ $$ |$$  _____|$$ |  $$ |$$ | \____$$\\_$$  _|  $$  __$$\ $$  __$$\ 
+$$ |       $$$$$$$ |$$ |$$ /      $$ |  $$ |$$ | $$$$$$$ | $$ |    $$ /  $$ |$$ |  \__|
+$$ |  $$\ $$  __$$ |$$ |$$ |      $$ |  $$ |$$ |$$  __$$ | $$ |$$\ $$ |  $$ |$$ |      
+\$$$$$$  |\$$$$$$$ |$$ |\$$$$$$$\ \$$$$$$  |$$ |\$$$$$$$ | \$$$$  |\$$$$$$  |$$ |      
+ \______/  \_______|\__| \_______| \______/ \__| \_______|  \____/  \______/ \__|      
+                                                                                       
+                                                                                       
+)" << endl;
+cout << " select operation \n 1.Addition 2.Subtraction 3.Multiplication 4.Division 5.Power 6.exit" << endl;
+
+for (int i = 0; i < 1;) {
+    
 cin >> choice;
+cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
 switch (choice) {
 case 1:
-nbrsele();
+nbrsele(a, b);
 add();
 cout << "The result is " << result << endl;
 break;
 
 
 case 2:
-    nbrsele();
+    nbrsele(a, b);
     sub();
     cout << "The result is " << result << endl;
     break;
 case 3:
-    nbrsele();
+    nbrsele(a, b);
     mult();
     cout << "The result is " << result << endl;
     break;
 case 4:
-    nbrsele();
+    nbrsele(a, b);
     div();
     cout << "The result is " << result << endl;
     break;
@@ -116,18 +138,17 @@ case 5:
     cout << "The result is " << result << endl;
     break;
 
+case 6:
+    exit(0);
+    break;
 
 
-
-
-
-    
 default:
     cout << "Invalid choice!" << endl;
 }
 return 0;
 
-
+}
 
 
 }
